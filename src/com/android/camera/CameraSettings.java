@@ -402,6 +402,22 @@ public class CameraSettings {
         mParameters = parameters;
         mCameraId = cameraId;
         mCameraInfo = cameraInfo;
+
+        // ISO
+        mKeyIso = mContext.getResources().getString(R.string.key_iso);
+        mKeyIsoValues = mContext.getResources().getString(R.string.key_iso_values);
+
+        if (mKeyIso == null || mKeyIso.isEmpty()) {
+            mKeyIso = "iso";
+        } else {
+            Log.d(TAG, "Using key for iso: " + mKeyIso);
+        }
+
+        if (mKeyIsoValues == null || mKeyIsoValues.isEmpty()) {
+            mKeyIsoValues = "iso-values";
+        } else {
+            Log.d(TAG, "Using key for iso-values: " + mKeyIsoValues);
+        }
     }
 
     public PreferenceGroup getPreferenceGroup(int preferenceRes) {
